@@ -1,0 +1,41 @@
+# ---- Django ----
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+media/
+staticfiles/
+static/
+.env
+
+# ---- Virtual Environment ----
+venv/
+ENV/
+env/
+.venv/
+
+# ---- OS / Editor ----
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+
+# ---- Migrations (opcional) ----
+# Descomente caso não queira commitar migrações iniciais
+# */migrations/*
+# !*/migrations/__init__.py
+
+# ---- Python ----
+*.py[cod]
+*$py.class
+
+# ---- Backup / Temp ----
+*.bak
+*.swp
+*.tmp
+
