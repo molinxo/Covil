@@ -22,8 +22,8 @@ def projects(request):
     return render(request, 'blog/projects.html', {'projects': projects})
 
 def project_detail(request, pk):
-    post = get_object_or_404(Project, pk=pk)
-    return render(request, 'blog/project_detail.html', {'post': post})
+    project = get_object_or_404(Project, pk=pk)
+    return render(request, 'blog/project_detail.html', {'project': project})
 
 def gear(request):
     return render(request, 'blog/gear.html')
