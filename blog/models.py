@@ -16,6 +16,7 @@ class Project(models.Model):
     repo_url = models.URLField(blank=True, null=True)  # link do GitHub
     demo_url = models.URLField(blank=True, null=True)  # link do site (opcional)
     created_at = models.DateField()  # você define a data do projeto
+    image = models.ImageField(upload_to='projects/', blank=True, null=True)
 
     def __str__(self):
         return self.name

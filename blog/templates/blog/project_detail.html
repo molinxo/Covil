@@ -4,26 +4,32 @@
 
 <h1>{{ project.name }}</h1>
 
-<p><strong>Data:</strong> {{ project.created_at|date:"d/m/Y" }}</p>
+{% if project.image %}
+    <img src="{{ project.image.url }}" 
+         alt="{{ project.name }} image"
+         style="width:400px; border-radius:10px; margin:20px 0;">
+{% endif %}
 
-<p><strong>Tecnologias:</strong> {{ project.tech_stack }}</p>
+<p><strong>Date:</strong> {{ project.created_at|date:"d/m/Y" }}</p>
+
+<p><strong>Tech stack:</strong> {{ project.tech_stack }}</p>
 
 <hr>
 
-<h3>Descrição</h3>
+<h3>Description</h3>
 <p>{{ project.description|linebreaks }}</p>
 
 <hr>
 
 {% if project.repo_url %}
     <p>
-      <a href="{{ project.repo_url }}" target="_blank">repo</a>
+      <a href="{{ project.repo_url }}" target="_blank">Git Repo URL</a>
     </p>
 {% endif %}
 
 {% if project.demo_url %}
     <p>
-      <a href="{{ project.demo_url }}" target="_blank">demo</a>
+      <a href="{{ project.demo_url }}" target="_blank">Demo URL</a>
     </p>
 {% endif %}
 
