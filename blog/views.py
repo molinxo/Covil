@@ -15,7 +15,7 @@ def blog(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(BlogPost, pk=pk)
-    return render(request, 'blog/post_detail.html', {'post': post})
+    return render(request, 'blog/postdetail.html', {'post': post})
 
 def projects(request):
     projects = Project.objects.order_by('-created_at')
