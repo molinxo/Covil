@@ -77,6 +77,21 @@
             margin-top: 20px;
         }
 
+        
+        .layout {
+          display: flex;
+          min-height: 100vh;
+        }
+
+        .sidebar {
+          width: 180px;
+          padding-right: 20px;
+        }
+
+        .content-area {
+          flex: 1;
+        }
+
         i {
             font-size: 5rem;
             margin: 55px;
@@ -92,6 +107,41 @@
              overflow: auto;
              text-shadow: 0 0 6px rgba(0,255,0,0.08);
           }
+
+        .my-menu a {
+          background: #000;
+          color: lime;
+          font-family: monospace;
+          display: block;
+          height: 30px;
+          line-height: 30px;
+          width: 150px;
+          text-decoration: none;
+          font-size: 16px;
+        }
+
+        .my-menu .bloop {
+          font-size: 36px;
+          line-height: 30px;
+          display: inline-block;
+          color: red;
+          text-shadow: 1px 1px 3px red;
+        }
+
+        .my-menu a:hover .bloop {
+          color: lime;
+          text-shadow: 1px 1px 3px lime;
+        }
+
+        .my-menu a:hover .menu-text {
+          color: #9eff9e;
+        }
+
+        .my-menu .menu-text {
+          display: inline-block;
+          vertical-align: top;
+          text-shadow: 1px 1px 3px lime;
+        }
 
     </style>
 </head>
@@ -144,22 +194,31 @@
     });
   </script>
 
-    <header>
-        <h1 id=typewriter>>>></h1>
-        <nav>
-          <a href="{% url 'home' %}">Home</a>
-          <a href="{% url 'about' %}">About</a>
-          <a href="{% url 'blog' %}">Blog</a>
-          <a href="{% url 'projects' %}">Projects</a>
-          <a href="{% url 'gear' %}">Gear</a>       
-        </nav>
-    </header>
 
-    <main>
-        {% block content %}
-        <!-- Conteúdo das páginas filhas -->
-        {% endblock %}
-    </main>
+        <h1 id=typewriter>>>></h1>
+
+        <div class="layout">
+        <div class ="sidebar">
+          <div class="my-menu">
+            <nav>
+              <a href="{% url 'home' %}"><div class="bloop">.</div><div class="menu-text">Home</div></a>
+              <a href="{% url 'about' %}"><div class="bloop">.</div><div class="menu-text">About</div></a>
+              <a href="{% url 'blog' %}"><div class="bloop">.</div><div class="menu-text">Blog</div></a>
+              <a href="{% url 'projects' %}"><div class="bloop">.</div><div class="menu-text">Projects</div></a>
+              <a href="{% url 'gear' %}"><div class="bloop">.</div><div class="menu-text">Gear</div></a>       
+            </nav>
+          </div>
+      </div>
+
+    <div class="content-area">
+      <main>
+          {% block content %}
+          <!-- Conteúdo das páginas filhas -->
+          {% endblock %}
+      </main>
+    </div>
+  </div>
+
 
     <footer>
         <p>&copy; txogs</p>
